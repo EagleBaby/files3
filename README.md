@@ -14,6 +14,7 @@
 <li><a href="#cn_installation">Intallation</li>
 <li><a href="#cn_quick_start">Quick Start</li>
 <li><a href="#cn_advanced">Advanced</li>
+<li><a href="#cn_notice">Notice</li>
 <li><a href="#cn_cmd_command">Cmd Command</li>
 <li><a href="#cn_last">Last</li>
 </ol>
