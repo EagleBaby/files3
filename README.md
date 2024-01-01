@@ -14,7 +14,6 @@
 <li><a href="#cn_installation">Intallation</li>
 <li><a href="#cn_quick_start">Quick Start</li>
 <li><a href="#cn_advanced">Advanced</li>
-<li><a href="#cn_notice">Notice</li>
 <li><a href="#cn_cmd_command">Cmd Command</li>
 <li><a href="#cn_last">Last</li>
 </ol>
@@ -88,13 +87,21 @@ print(f[re.compile('a')])  # 1
 &nbsp
 del f[...]
 </code></pre>
+<pre><code class="language-python">
+# hash: get hash of the file
+fhash = f.hash('a')
+&nbsp
+# retype: adjust the ftype of exists files
+f.retytpe('.newtype', 'a', 'b', ...)  # f.retype('.newtype')  # all files
+&nbsp
+# relink: manual adjust the scp(Source Code Path) of exists files 
+f.retytpe('C:/mycode/code.py', 'a', 'b', ...)  # f.retype('C:/mycode/code.py')  # all files
+</code></pre>
 <a name="en_notice"></a>
 <h2>Notice</h2>
 <p>There are some special case that you can't save:</p>
 <ol>
-<li>save pfbool object</li>
-<li>use f_A to save instance which contain f_A. (but you can use f_B to save it.)</li>
-<li>object which do not have __getstate__ and __setstate__ method</li>
+    <li>f3bool object and files object (alias Files, F3Shell)</li><li>Actively refuse to serialize objects (such objects will actively throw errors when attempting to serialize)</li><li>cases not supported by pickle (such as module, lambda, local function/class (that is nested inside other functions and classes))</li>
 </ol>
 <a name="en_cmd_command"></a>
 <h2>Cmd Command</h2>
@@ -176,13 +183,23 @@ print(f[re.compile('a')])  # 1
 &nbsp
 del f[...]
 </code></pre>
+<pre><code class="language-python">
+# hash：获取目标的文件指纹
+fhash = f.hash('a')
+&nbsp
+# retype: 调整已有文件的后缀
+f.retytpe('.newtype', 'a', 'b', ...)  # f.retype('.newtype')  # 全部文件
+&nbsp
+# relink: 手动调整已有文件的源代码后位置
+f.retytpe('C:/mycode/code.py', 'a', 'b', ...)  # f.retype('C:/mycode/code.py')  # 全部文件
+</code></pre>
 <a name="cn_notice"></a>
 <h2>注意</h2>
 <p>有一些特殊情况不能保存：</p>
 <ol>
-<li>保存pfbool对象</li>
-<li>使用f_A保存包含f_A的实例。 （但是您可以使用f_B保存它。）</li>
-<li>没有__getstate__和__setstate__方法的对象</li>
+<li>f3bool对象和files对象(别名Files, F3Shell)</li>
+<li>主动拒绝序列化的对象(例如此类对象在试图序列化时会主动抛出error)</li>
+<li>pickle不支持的情况(例如 module，lambda，local function/class (那种嵌套在其他函数和class内部的))</li>
 </ol>
 <a name="cn_cmd_command"></a>
 <h2>Cmd命令</h2>
@@ -193,5 +210,5 @@ f3assoc [type]  # 将'.type'文件关联到'f3open'程序
 </code></pre>
 <a name="cn_last"></a>
 <h2>最后</h2>
-<p>这确实很方便，但是由于pickle不安全，因此可能不要使用它来加载您不信任的文件。 但是，如果您像我一样不怎么关心这个问题，那么可以使用它为您带来良好的编程体验。</p>
+<p>这确实很方便，但是由于pickle不安全，因此可能不要使用它来加载您不信任的文件。 但是，如果您不像我一样不怎么关心它，那么可以使用它为您带来良好的编程体验。</p>
 
